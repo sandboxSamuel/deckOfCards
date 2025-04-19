@@ -1,43 +1,153 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="h-100" data-bs-theme="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <!-- Fav Icon Information -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="mask-icon"
+      href="../images/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="manifest" href="../images/favicon/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <title>Projects</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/main.css">
-  <!-- Fav Icon Information -->
-  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
-  <link rel="mask-icon" href="../images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="manifest" href="../images/favicon/site.webmanifest">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="msapplication-TileColor" content="#2b5797">
-  <title>Projects</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Begin css for deck tool -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      .card {
+        font-size: 24px;
+        margin: 10px 0;
+      }
+      .discard-pile {
+        margin-top: 20px;
+      }
+      button {
+        margin-right: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
 
-  <!-- Begin css for deck tool -->
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    .card { font-size: 24px; margin: 10px 0; }
-    .discard-pile { margin-top: 20px; }
-    button { margin-right: 10px; padding: 10px 20px; font-size: 16px; }
-  </style>  
-  <!-- End css for deck tool -->  
-</head>
-<body>
+      .playing-card {
+        width: 80px;
+        height: 120px;
+        background-color: white;
+        border: 1px solid #333;
+        border-radius: 10px;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        font-family: "Georgia", serif;
+        font-weight: bold;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        color: black;
+        position: relative;
+      }
+
+      .playing-card.red {
+        color: red;
+      }
+
+      .corner {
+        position: absolute;
+        font-size: 14px;
+        text-align: center;
+        line-height: 1;
+      }
+
+      .center-suit {
+        font-size: 32px;
+        text-align: center;
+      }
+
+      .joker-face {
+        font-size: 14px;
+        text-align: center;
+        line-height: 1.4;
+        padding: 10px;
+      }
+
+      .discard-pile {
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+      }
+
+      .stack-count {
+        background: #eee;
+        font-size: 16px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .discard-pile {
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+      }
+
+      .stack-wrapper {
+        position: relative;
+        width: 100px;
+        height: 120px;
+      }
+
+      .stack-wrapper .playing-card {
+        position: absolute;
+        top: 0;
+        transition: all 0.2s ease;
+      }
+
+      .highlight {
+        z-index: 100; /* ensure top layer */
+      }
+
+      
+    </style>
+    <!-- End css for deck tool -->
+  </head>
+  <body>
     <h1>Random Card Drawer</h1>
-  <button onclick="drawCard()">Draw Card</button>
-  <button onclick="reshuffle()">Reshuffle</button>
+    <button onclick="drawCard()">Draw Card</button>
+    <button onclick="reshuffle()">Reshuffle</button>
 
-  <div class="card" id="drawnCard">Drawn card will appear here.</div>
 
-  <div class="discard-pile">
-    <h3>Discard Pile:</h3>
-    <div id="discardPile"></div>
+<div><h3>Drawn Card</h3>
+    <div class="card" id="drawnCard"></div>
   </div>
 
-  
+<div><h3>Discard Pile</h3>
+    <div class="discard-pile" id="discardPile">
+      
+      
+    </div>
+  </div>
     <script src="deckOfCards.js"></script>
-</body>
+  </body>
 </html>
