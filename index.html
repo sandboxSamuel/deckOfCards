@@ -15,9 +15,29 @@
   <meta name="msapplication-TileColor" content="#2b5797">
   <title>Projects</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Begin css for deck tool -->
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .card { font-size: 24px; margin: 10px 0; }
+    .discard-pile { margin-top: 20px; }
+    button { margin-right: 10px; padding: 10px 20px; font-size: 16px; }
+  </style>  
+  <!-- End css for deck tool -->  
 </head>
 <body>
-    <h1>Deck of Cards workspace.</h1>
+    <h1>Random Card Drawer</h1>
+  <button onclick="drawCard()">Draw Card</button>
+  <button onclick="reshuffle()">Reshuffle</button>
+
+  <div class="card" id="drawnCard">Drawn card will appear here.</div>
+
+  <div class="discard-pile">
+    <h3>Discard Pile:</h3>
+    <div id="discardPile"></div>
+  </div>
+
+  
     <script src="deckOfCards.js"></script>
 </body>
 </html>
